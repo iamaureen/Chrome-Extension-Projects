@@ -1,0 +1,23 @@
+{
+  "background": {
+    "persistent": false,
+    "page": "background.html"
+  },
+  "description": "Playing around with web extensions",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+
+ ],
+ "content_scripts": [{
+    "matches": ["https://brainly.com/"],
+    "js": ["content.js"]
+  }],
+  "options_page": "options.html",
+  "name": "Brainly Extension",
+  "version": "0.1",
+  "manifest_version": 2
+}
