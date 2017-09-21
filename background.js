@@ -1,6 +1,11 @@
 // A function to use as callback
 function doStuffWithDom(domContent) {
     console.log('I received the following DOM content:\n' + domContent);
+
+    // set fso = CreateObject("Scripting.FileSystemObject");
+    // set s = fso.CreateTextFile("C:\test.txt", True);
+    // s.writeline(domContent);
+    // s.Close();
 }
 
 var url = "https://brainly.com/"

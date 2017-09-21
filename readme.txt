@@ -14,6 +14,11 @@ html will be displayed in console
 note:TODO: unable to print console.log from content.js
 note:TODO: icon is not being displayed
 
+6. connect extension with the server
+Added a button in the Option page, "connect to server"
+an ajax call is made to the (django) server that POSTS some data and 
+server sends back a response
+
 TODO:
 https://developer.chrome.com/extensions/messaging
 https://developer.chrome.com/extensions/content_scripts
