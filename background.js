@@ -1,12 +1,11 @@
 // A function to use as callback
 function doStuffWithDom(domContent) {
     console.log('I received the following DOM content:\n' + domContent);
+    post_to_server();
 
-    // set fso = CreateObject("Scripting.FileSystemObject");
-    // set s = fso.CreateTextFile("C:\test.txt", True);
-    // s.writeline(domContent);
-    // s.Close();
 }
+
+
 
 var url = "https://brainly.com/"
 
@@ -27,7 +26,7 @@ var url = "https://brainly.com/"
 
     //2. count number of tabs open in the browser
     //no need to add the activeTab permission for this
-   /*  chrome.tabs.query({windowType:'normal'}, function(tabs) {
+  /*   chrome.tabs.query({windowType:'normal'}, function(tabs) {
       console.log('Number of open tabs in all normal browser windows:',tabs.length);
    });*/
 
@@ -43,3 +42,24 @@ var url = "https://brainly.com/"
      }
 
 });
+
+function formToJSON() {
+  return JSON.stringify({"name":"Ishrat3","description":"Ishrat Ahmed","price":"10.00"});
+}
+
+function post_to_server(){
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    url: 'http://127.0.0.1:8000/products/',
+    data: formToJSON(),
+    success: function (data, textStatus, xhr) {
+              console.log(data);
+      },
+      error: function (xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+      }
+
+  });
+
+}

@@ -1,7 +1,7 @@
 {
   "background": {
-    "persistent": false,
-    "page": "background.html"
+    "persistent": false,  
+    "scripts": ["jquery.min.js","background.js"]
   },
   "description": "Playing around with web extensions",
   "browser_action": {
@@ -14,7 +14,7 @@
  ],
  "content_scripts": [{
     "matches": ["https://brainly.com/"],
-    "js": ["content.js"]
+    "js": ["jquery.min.js","content.js"]
   }],
   "options_page": "options.html",
   "name": "Brainly Extension",
