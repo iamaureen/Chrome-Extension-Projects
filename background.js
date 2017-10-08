@@ -1,7 +1,8 @@
 // A function to use as callback
 function doStuffWithDom(domContent) {
-    console.log('I received the following DOM content:\n' + domContent);
-    post_to_server();
+    //console.log('I received the following DOM content:\n' + domContent);
+    //6.connect to server
+    post_to_server(domContent);
 
 }
 
@@ -47,12 +48,13 @@ function formToJSON() {
   return JSON.stringify({"name":"Ishrat3","description":"Ishrat Ahmed","price":"10.00"});
 }
 
-function post_to_server(){
+//6.connect to server
+function post_to_server(domContent){
   $.ajax({
     type: 'POST',
     contentType: 'application/json',
     url: 'http://127.0.0.1:8000/products/',
-    data: formToJSON(),
+    data: JSON.stringify(domContent),
     success: function (data, textStatus, xhr) {
               console.log(data);
       },
