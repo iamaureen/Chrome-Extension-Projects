@@ -14,6 +14,13 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
     }
 });
 
+// Send a message containing the page details back to the background page
+chrome.runtime.sendMessage({
+    'title': document.title,
+    'url': window.location.href,
+    'summary': window.getSelection().toString()
+});
+
 function formToJSON() {
   return JSON.stringify({"name":"Ishrat3","description":"Ishrat Ahmed","price":"10.00"});
 }

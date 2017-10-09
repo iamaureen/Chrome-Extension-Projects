@@ -38,11 +38,15 @@ added jquery.min.js in the manifest. it has to be added before
 content.js/background.js to maintain the order of execution.
 
 8. chrome storage api
+ref source: https://gist.github.com/IzumiSy/765cfd6dc02c79de875e
 - created popup.html to ask for user name input
 - stored into chrome storage
 - retrieve the stored value, according to value obtained show/hid div element
 (unable to see the storage in developers tool, used this way: https://stackoverflow.com/questions/11922964/how-do-i-view-the-storage-of-a-chrome-extension-ive-installed )
 
+9. communicate between popup.js and background.js:
+http://tipstak.blogspot.com/2014/06/how-to-communicate-between-background-and-popup-on-Chrome-extensions.html (only value,not callback)
+https://markb.co.uk/building-a-simple-google-chrome-extension.html (using callback: popup.js->background.js->content.js->background.js->popup.js)
 TODO:
 https://developer.chrome.com/extensions/messaging
 https://developer.chrome.com/extensions/content_scripts

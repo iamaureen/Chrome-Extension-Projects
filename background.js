@@ -5,9 +5,6 @@ function doStuffWithDom(domContent) {
     post_to_server(domContent);
 
 }
-
-
-
 var url = "https://brainly.com/"
 
   // Called when the user clicks on the browser action.
@@ -42,7 +39,20 @@ var url = "https://brainly.com/"
          chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
      }
 
+
+
 });
+
+//connect to popup.js
+function getPageDetails(callback) {
+    // Inject the content script into the current page
+    chrome.tabs.executeScript(null, { file: 'content.js' });
+    // Perform the callback when a message is received from the content script
+    chrome.runtime.onMessage.addListener(function(message)  {
+        // Call the callback function
+        callback(message);
+    });
+};
 
 function formToJSON() {
   return JSON.stringify({"name":"Ishrat3","description":"Ishrat Ahmed","price":"10.00"});
