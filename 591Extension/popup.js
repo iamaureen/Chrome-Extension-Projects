@@ -4,6 +4,7 @@
  var bookmark_div = document.getElementById("bookmark");
 
 document.body.onload = function() {
+
   chrome.storage.sync.get("data", function(items) {
 
     if (!chrome.runtime.error) {
@@ -40,7 +41,7 @@ function onPageDetailsReceived(pageDetails)  {
 }
 //get url for bookmark-end
 
-
+//when set but is clicked after entering username
 document.getElementById("set").onclick = function() {
   var d = document.getElementById("text").value;
   chrome.storage.sync.set({ "data" : d }, function() {
@@ -50,3 +51,19 @@ document.getElementById("set").onclick = function() {
   });
   //window.close();
 }
+
+document.getElementById("addBookmark").onclick = function() {
+  console.log("clicked add bookmark")
+}
+
+//detect change event in the tag input textfield, and suggest tags
+$('#tags').keyup(function(event) {
+  //TODO: add bot here (!)
+  if(document.getElementById("tags").value.length > 0){
+    //TODO: randomize response
+    document.getElementById("tagsugg").innerText = "want to be more specific?";
+  }
+  else{
+    document.getElementById("tagsugg").innerText = "";
+  }
+})
