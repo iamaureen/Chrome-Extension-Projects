@@ -3,7 +3,7 @@
     "persistent": false,
     "scripts": ["jquery.min.js","background.js"]
   },
-  "description": "Playing around with web extensions",
+  "description": "CSE 591 Extension",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
