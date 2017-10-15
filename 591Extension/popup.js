@@ -3,6 +3,10 @@
  var option_div = document.getElementById("options");
  var bookmark_div = document.getElementById("bookmark");
 
+ var name;
+ var url;
+ var tags;
+
 document.body.onload = function() {
 
   chrome.storage.sync.get("data", function(items) {
@@ -10,9 +14,9 @@ document.body.onload = function() {
     if (!chrome.runtime.error) {
       if(items.data) {
       form_div.style.display = "none";
-      //option_div.style.display = "block";
-      //bookmark_div.style.display = "none";
+      //get the username
       console.log(items);
+      name = items.data;
       document.getElementById("data").innerText = items.data;
     }
     }
@@ -37,6 +41,7 @@ function onPageDetailsReceived(pageDetails)  {
     // document.getElementById('url').value = pageDetails.url;
     // document.getElementById('summary').innerText = pageDetails.summary;
     console.log(pageDetails.url)
+    url = pageDetails.url;
     document.getElementById('url').value = pageDetails.url;
 }
 //get url for bookmark-end
@@ -54,6 +59,30 @@ document.getElementById("set").onclick = function() {
 
 document.getElementById("addBookmark").onclick = function() {
   console.log("clicked add bookmark")
+  //content
+  tags = document.getElementById('tags').value;
+
+  content = {
+    username: name,
+    url: url,
+    tags: tags
+  }
+  content = JSON.stringify(content)
+
+  //add info to the the database
+  $.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    url: 'http://127.0.0.1:8000/bookmarkPost/',
+    data: content,
+    success: function (data, textStatus, xhr) {
+              console.log(data);
+      },
+      error: function (xhr, textStatus, errorThrown) {
+                console.log(xhr);
+      }
+
+  });
 }
 
 //detect change event in the tag input textfield, and suggest tags
