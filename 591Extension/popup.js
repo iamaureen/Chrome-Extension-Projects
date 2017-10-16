@@ -7,30 +7,11 @@
  var url;
  var tags;
 
+
+
 document.body.onload = function() {
 
-//notification code start ref: https://developer.chrome.com/apps/app_codelab_alarms
-  var opt = {
-    type: 'list',
-    title: 'keep burning',
-    message: 'Primary message to display',
-    priority: 1,
-    items: [{ title: '', message: ''}],
-    iconUrl:'icon.png'
-
-};
-
-
-chrome.notifications.create('id', opt, function(id) {
-
-  chrome.notifications.onClicked.addListener(function(id, byUser) {
-       chrome.tabs.create({url: "http://www.google.com"});
-   });
-});
-
-//notification code end
-
-  chrome.storage.sync.get("data", function(items) {
+chrome.storage.sync.get("data", function(items) {
 
     if (!chrome.runtime.error) {
       if(items.data) {
@@ -99,10 +80,37 @@ document.getElementById("addBookmark").onclick = function() {
     success: function (data, textStatus, xhr) {
               console.log(data);
               //show notification - it will show notification locally
+
+              //notification code start ref: https://developer.chrome.com/apps/app_codelab_alarms
+              var opt = {
+                type: 'list',
+                title: url,
+                message: 'Primary message to display',
+                priority: 1,
+                items: [{ title: '', message: ''}],
+                iconUrl:'icon.png'
+
+             };
+
+             chrome.notifications.create('id', opt, function(id) {
+
+               chrome.notifications.onClicked.addListener(function(id, byUser) {
+                    chrome.tabs.create({url: url});
+                });
+             });
+
+             //notification code end
+
+
               //https://stackoverflow.com/questions/35655817/chrome-desktop-notification-to-all-usershttps://stackoverflow.com/questions/35655817/chrome-desktop-notification-to-all-users
               //push notification for web: https://developers.google.com/web/updates/2015/03/push-notifications-on-the-open-web
               //gcm for chrome extension instead of push notification: https://stackoverflow.com/questions/35699566/chrome-extension-with-service-worker-receiving-push-notifications
               //example another project: https://medium.freecodecamp.org/i-wanted-real-time-github-push-notifications-so-i-built-a-chrome-extension-7e6be0611e4
+              //https://github.com/googlearchive/chrome-app-samples/blob/master/samples/gcm-notifications/background.js
+              //https://stackoverflow.com/questions/24712828/what-is-app-key-in-gcm-notification-sample
+              //http://hayageek.com/google-cloud-messaging-for-chrome/
+
+
       },
       error: function (xhr, textStatus, errorThrown) {
                 console.log(xhr);
