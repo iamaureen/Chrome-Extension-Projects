@@ -19,8 +19,6 @@
     "matches": ["https://brainly.com/"],
     "js": ["jquery.min.js","content.js"]
   }],
-
-  "options_page": "options.html",
   "name": "CSE 591 Extension",
   "version": "0.1",
   "manifest_version": 2

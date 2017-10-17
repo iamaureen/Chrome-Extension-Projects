@@ -6,6 +6,7 @@
  var name;
  var url;
  var tags;
+var alltags = [];
 
 
 
@@ -62,12 +63,23 @@ document.getElementById("set").onclick = function() {
 document.getElementById("addBookmark").onclick = function() {
   console.log("clicked add bookmark")
   //content
-  tags = document.getElementById('tags').value;
+
+  console.log(tags)
+
+    for (var key in tags) {
+         if (tags.hasOwnProperty(key)) {
+            console.log(tags[key].Title);
+            alltags.push(tags[key].Title)
+
+         }
+      }
+      console.log(alltags)
+      alltags = JSON.stringify(alltags)
 
   content = {
     username: name,
     url: url,
-    tags: tags
+    tags: alltags
   }
   content = JSON.stringify(content)
 
@@ -118,15 +130,20 @@ document.getElementById("addBookmark").onclick = function() {
 
   });
 }
+//close upon cross
+$('#closePopUp').click(function(event) {
+window.close();
+});
 
 //detect change event in the tag input textfield, and suggest tags
-$('#tags').keyup(function(event) {
-  //TODO: add bot here (!)
-  if(document.getElementById("tags").value.length > 0){
-    //TODO: randomize response
-    document.getElementById("tagsugg").innerText = "want to be more specific?";
-  }
-  else{
-    document.getElementById("tagsugg").innerText = "";
-  }
-})
+var ms = $('#ms').magicSuggest({
+data: [{"id":1,"Title":"javascript"}, {"id":2,"Title":"jquery"}, {"id":3,"Title":"HTML"},{"id":4,"Title":"css"},{"id":5,"Title":"angularjs"}, {"id":6,"Title":"php"}, {"id":7,"Title":"python"},{"id":8,"Title":"django"},{"id":9,"Title":"panda"},{"id":10,"Title":"numpy"}],
+       valueField: 'id',
+       displayField: 'Title',
+        highlight: false
+});
+$(ms).on('selectionchange', function(){
+ //alert(JSON.stringify(this.getSelection()));
+ tags = this.getSelection();
+ //console.log(tags)
+});
