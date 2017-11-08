@@ -6,3 +6,10 @@ if any changes are done in index.html, use deploy command
 firebase deploy --only hosting
 this will deploy the application and provide an url.
 use this url to access this application from other browsers
+
+for mac, this version of push notification does not work
+so open the url in chrome you may have to allow notification browser else notification wont be shown
+so do this in the browser:
+chrome://flags/#enable-native-notifications
+and enable Enable native notifications ((Mac, Linux)
+Enable support for using the native notification toasts and notification center on platforms where these are available)
