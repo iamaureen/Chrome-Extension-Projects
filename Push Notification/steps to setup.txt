@@ -1,0 +1,76 @@
+## Installation Phase
+1. Install node.js
+
+2. Go to cmd
+
+2.i. npm install -g firebase-tools
+2.ii. firebase login
+<src: https://firebase.google.com/docs/functions/get-started>
+
+## Firebase setup phase
+3. Go to desired folder for the projects, open cmd
+
+4. firebase init => it will create firebase.json
+
+<followed this tutorial for push notification among browsers
+https://www.youtube.com/watch?v=XdzXaW8IbBM>
+
+5.Steps: (in the cmd prompt navigated to the project folder that was initiated as Firebase)
+5.a. select the Firebase CLI features needed for this directory
+<use space to select, and finally press enter>
+
+5.b. select the Firebase project for this directory
+<list is shown from the firebase console, select the one associated with it>
+
+5.c. What file should be used for Database Rules? database.rules.json
+<Database Rules for <project> will be downloaded to database.rules.json.
+Future modifications to database.rules.json will update database rules when "firebase deploy" is executed.
+
+5.d. Functions Setup: A functions directory will be created in the project with a Node.js
+package pre-configured. Functions can be deployed with a ifrebase deply cmd
+<will write functions/package.json
+will write functions/index.js>
+Do you want to install dependencies with npm now? (Y/N) Y
+will install dependencies in node_modules
+
+5.e. Hosting Setup:
+What do you want to use as your public directory? (public) . (. means root folder)
+
+5.f. Configure as a single-page app (rewrite all urls to /index.html)? NO
+
+5.g. File ./index.html already exists. Overwrite? No
+
+<By this end, Firebase initialization should be completed>
+
+6. These steps have created a folder/file structure
+## File Descriptions:
+<src: https://firebase.google.com/docs/functions/get-started>
+myproject
+ +- .firebaserc    # Hidden file that helps you quickly switch between
+ |                 # projects with `firebase use`
+ |
+ +- firebase.json  # Describes properties for your project
+ |
+ +- functions/     # Directory containing all your functions code
+      |
+      +- package.json  # npm package file describing your Cloud Functions code
+      |
+      +- index.js      # main source file for your Cloud Functions code
+      |
+      +- node_modules/ # directory where your dependencies (declared in
+                       # package.json) are installed
+
+
+7. To deploy hosting:
+firebase deploy --only hosting
+<hosts the app and gives an url>
+
+8. a.To deploy functions:
+firebase deploy --only functions
+
+8. b. To deploy specific functions:
+firebase deploy --only function:<function name from index.js>
+example firbase deploy --only function:sendNotifications
+
+9. After deploying, firebase CLI outputs the URL for any HTTP function endpoints
+<src: https://firebase.google.com/docs/functions/get-started>

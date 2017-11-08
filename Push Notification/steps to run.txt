@@ -1,0 +1,8 @@
+in the server machine
+go to the folder location where firebase.json is location
+type firebase serve - this will start the server
+
+if any changes are done in index.html, use deploy command
+firebase deploy --only hosting
+this will deploy the application and provide an url.
+use this url to access this application from other browsers

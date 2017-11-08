@@ -12,11 +12,12 @@
     "activeTab",
     "storage",
     "tabs",
-    "notifications"
+    "notifications",
+    "gcm"
 
  ],
  "content_scripts": [{
-    "matches": ["https://brainly.com/"],
+    "matches": ["<all_urls>"],
     "js": ["jquery.min.js","content.js"]
   }],
   "name": "CSE 591 Extension",
