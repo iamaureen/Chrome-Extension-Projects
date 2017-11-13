@@ -57,6 +57,7 @@ function signIn() {
 }
 
 function signOut() {
+  unsubscribeButton.setAttribute("hidden", "true");
   FIREBASE_AUTH.signOut();
 }
 
