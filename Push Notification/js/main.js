@@ -27,7 +27,7 @@ signOutButton.addEventListener("click", signOut);
 subscribeButton.addEventListener("click", subscribeToNotifications);
 unsubscribeButton.addEventListener("click", unsubscribeFromNotifications);
 sendNotificationForm.addEventListener("submit", sendNotification);
-getDataButton.addEventListener("click", getDataList);
+//getDataButton.addEventListener("click", getDataList);
 
 /* ========================
   Functions
@@ -140,16 +140,16 @@ function sendNotification(e) {
     });
 }
 
-  //get data from database
-  function getDataList(){
-    console.log('button clicked')
-    FIREBASE_DATABASE.ref('/notifications').once('value')
-    .then(function (snap) {
-      data = snap.val()
-      for(let key in data){
-        console.log(data[key].message)
-      }
-
-   });
-  }
+  // //get data from database
+  // function getDataList(){
+  //   console.log('button clicked')
+  //   FIREBASE_DATABASE.ref('/notifications').once('value')
+  //   .then(function (snap) {
+  //     data = snap.val()
+  //     for(let key in data){
+  //       console.log(data[key].message)
+  //     }
+  //
+  //  });
+  // }
 }
