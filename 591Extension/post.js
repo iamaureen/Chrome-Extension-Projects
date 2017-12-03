@@ -91,7 +91,9 @@ function addPost(e)
       userProfileImg: firebase.auth().currentUser.photoURL,
       topic: topic,
       type: type,
-      date: Date()
+      date: Date(),
+      useful: 0,
+      notuseful: 0
     })
     .then(() => {
       console.log("Post has been added");
