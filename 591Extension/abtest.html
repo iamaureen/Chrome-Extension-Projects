@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sign In in Chrome Extensions Example</title>
+ <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+  <button type="button" class="close" aria-label="Close" id ="closePopUp">
+  <span aria-hidden="true">&times;</span>
+</button>
+  
+<a href="main.html"><span class="glyphicon glyphicon-home" aria-hidden="true">Back</span></a>
+<div style="text-align: center; display:relative;top:0"><h4>A/B Testing</h4></div> 
+<div>
+<a href="post.html"><h4><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add a post</h4></a>
+</div>
+<hr>
+ <h4>Questions</h4>
+<div class="col-lg-9" id="questions">
+</div>
+<hr>
+ <h4>Explanations</h4>
+<div class="col-lg-9" id="explanations">
+ 
+</div>
+<hr>
+  <h4>Examples</h4>
+<div class="col-lg-9" id="examples">
+
+</div>
+
+
+
+ <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script src="abtest.js"></script>
+</body>
+</html>
