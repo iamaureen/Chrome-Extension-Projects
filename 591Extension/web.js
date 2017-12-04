@@ -52,6 +52,12 @@ firebase.database().ref('/web').on('value', function(snapshot) {
         div_note_textnode.className = "scroll-box";
         div_note.appendChild(div_note_textnode);
 
+        const div_tags = document.createElement('p');
+        const div_tags_textnode = document.createTextNode(data["question"][x].tags);
+        div_tags_textnode.className = "text-muted";
+        div_tags.appendChild(div_tags_textnode);
+
+
         const div_hr = document.createElement("HR");
         const div_br = document.createElement("BR");
 
@@ -128,7 +134,7 @@ firebase.database().ref('/web').on('value', function(snapshot) {
         not_useful_button.id = x;
         not_useful_button.appendChild(not_useful_button_text);
 
-        //update counter in the database when user presses 'useful'
+        //update counter in the database when user presses 'not useful'
         not_useful_button.addEventListener('click', function(e){
           var id = e.target.id;
           var num_notuseful = data["question"][x].notuseful
@@ -156,7 +162,7 @@ firebase.database().ref('/web').on('value', function(snapshot) {
         inner_div.appendChild(div_title);
         inner_div.appendChild(div_source);
         inner_div.appendChild(div_note);
-        //inner_div.appendChild(div_hr);
+        inner_div.appendChild(div_tags);
         inner_div.appendChild(div_user);
 
 

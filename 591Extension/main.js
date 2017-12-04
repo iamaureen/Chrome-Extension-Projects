@@ -11,7 +11,6 @@ var config = {
 firebase.initializeApp(config);
 
 
-
 firebase.database().ref('/web').on('value', function(snapshot) {
   if(snapshot.val()!=null)
   {
