@@ -128,16 +128,13 @@ function addPost(e)
   .then(() => {
     console.log("Post has been added");
     window.location.href = "main.html";
-    
+
   })
   .catch(() => {
     console.log("Error adding Post :(")
   });
 
 }
-
-
-
 
 window.onload = function() {
   document.getElementById('addPost-button').addEventListener('click', addPost);

@@ -158,6 +158,19 @@ question_tab.addEventListener('click', function(e){
         console.log("Error in updating")
       });
 
+      //display overlay
+      document.getElementById("myNav").style.width = "100%";
+
+    });
+
+    //close overlay
+    document.getElementById("overlay_close").addEventListener('click', function(e){
+      document.getElementById("myNav").style.width = "0%";
+    });
+
+    //get the overlay content
+    document.getElementById("overlay_submit_btn").addEventListener('click', function(e){
+    
     });
 
     comment_div.appendChild(comment_textarea);
