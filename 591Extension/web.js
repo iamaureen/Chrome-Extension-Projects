@@ -21,6 +21,24 @@ firebase.database().ref('/web').on('value', function(snapshot) {
   }
 });
 
+//close overlay
+document.getElementById("overlay_close").addEventListener('click', function(e){
+  document.getElementById("myNav").style.width = "0%";
+});
+
+//get the overlay content
+document.getElementById("overlay_submit_btn").addEventListener('click', function(e){
+ console.log("overly submit clicked")
+ var reasons=document.getElementsByName('reason');
+ var selectedReason="";
+		for(var i=0; i<reasons.length; i++){
+			if(reasons[i].type=='checkbox' && reasons[i].checked==true)
+				selectedReason+=reasons[i].value+"\n";
+		}
+		console.log(selectedReason);
+    document.getElementById("overlay_msg").innerHTML="Your Feedback is noted and will be informed to the User"
+});
+
 var question_tab = document.getElementById("questions");
 question_tab.addEventListener('click', function(e){
 
@@ -163,15 +181,6 @@ question_tab.addEventListener('click', function(e){
 
     });
 
-    //close overlay
-    document.getElementById("overlay_close").addEventListener('click', function(e){
-      document.getElementById("myNav").style.width = "0%";
-    });
-
-    //get the overlay content
-    document.getElementById("overlay_submit_btn").addEventListener('click', function(e){
-    
-    });
 
     comment_div.appendChild(comment_textarea);
     comment_form.appendChild(comment_div);
