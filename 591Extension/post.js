@@ -40,7 +40,7 @@ var tags;
 //   console.log(tags);
 //  });
 
- // end auto suggest Tags
+// end auto suggest Tags
 
 
 var textarea = document.getElementById("notes") ;
@@ -128,11 +128,12 @@ function addPost(e)
   .then(() => {
     console.log("Post has been added");
     window.location.href = "main.html";
+    
   })
   .catch(() => {
     console.log("Error adding Post :(")
   });
-  
+
 }
 
 
@@ -142,25 +143,4 @@ window.onload = function() {
   document.getElementById('addPost-button').addEventListener('click', addPost);
   getURL();
 
-  // var ms = $('#ms').magicSuggest({
-  //         data: [{"id":1,"Title":"javascript"},
-  //         {"id":2,"Title":"jquery"},
-  //         {"id":3,"Title":"HTML"},
-  //         {"id":4,"Title":"css"},
-  //         {"id":5,"Title":"angularjs"},
-  //         {"id":6,"Title":"php"},
-  //         {"id":7,"Title":"python"},
-  //         {"id":8,"Title":"django"},
-  //         {"id":9,"Title":"panda"},
-  //         {"id":10,"Title":"numpy"}],
-  //         valueField: 'id',
-  //         displayField: 'Title',
-  //         highlight: false
-  //  });
-  //
-  //  $(ms).on('selectionchange', function(){
-  //   //alert(JSON.stringify(this.getSelection()));
-  //   tags = this.getSelection();
-  //   console.log(tags);
-  //  });
 };
