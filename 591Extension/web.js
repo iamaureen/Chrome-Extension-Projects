@@ -350,6 +350,9 @@ explanation_tab.addEventListener('click', function(e){
               console.log("Error in updating")
             });
 
+            //display overlay
+            document.getElementById("myNav").style.width = "100%";
+
           });
 
 
@@ -467,6 +470,60 @@ example_tab.addEventListener('click', function(e){
             });
             data.value ='';
           }
+        });
+
+        //useful button
+        const useful_button = document.createElement("BUTTON");
+        useful_button.className = "btn btn-primary";
+        console.log('useful count :: ', data["question"][x].useful);
+        const useful_button_text = document.createTextNode(`Useful (${data["question"][x].useful}) `);
+        useful_button.type = "button";
+        useful_button.id = x;
+        useful_button.appendChild(useful_button_text);
+
+        //update counter in the database when user presses 'useful'
+        useful_button.addEventListener('click', function(e){
+          var id = e.target.id;
+          var num_useful = data["question"][x].useful
+          num_useful++
+          firebase.database().ref("web/question/"+id).update({
+            useful: num_useful
+          })
+          .then(() => {
+            console.log("useful is updated");
+          })
+          .catch(() => {
+            console.log("Error in updating")
+          });
+
+        });
+
+        //notuseful buttons
+        const not_useful_button = document.createElement("BUTTON");
+        not_useful_button.className = "btn btn-primary";
+        const not_useful_button_text = document.createTextNode(`Not Useful (${data["question"][x].notuseful}) `);
+        not_useful_button.type = "button";
+        not_useful_button.id = x;
+        not_useful_button.appendChild(not_useful_button_text);
+
+        //update counter in the database when user presses 'not useful'
+        not_useful_button.addEventListener('click', function(e){
+          var id = e.target.id;
+          var num_notuseful = data["question"][x].notuseful
+          num_notuseful++
+          firebase.database().ref("web/question/"+id).update({
+            notuseful: num_notuseful
+          })
+          .then(() => {
+            console.log("not useful is updated");
+          })
+          .catch(() => {
+            console.log("Error in updating")
+          });
+
+          //display overlay
+          document.getElementById("myNav").style.width = "100%";
+
         });
 
         comment_button.appendChild(button_text);

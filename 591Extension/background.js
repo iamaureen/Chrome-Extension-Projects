@@ -30,13 +30,6 @@ function initApp() {
     console.log('User state change detected from the Background script of the Chrome Extension:', user);
   });
 
-  //firebase.database().ref('/data').on('value', function(snapshot) {
- //document.getElementById("status").innerHTML = "fuck1";
- //console.log(snapshot.key() + " " + snapshot.val());
-    //document.getElementById("status").innerHTML=snapshot.key();
-//});
-
-
 }
 
 //connect to popup.js

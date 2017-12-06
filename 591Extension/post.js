@@ -127,7 +127,23 @@ function addPost(e)
   })
   .then(() => {
     console.log("Post has been added");
+
+    //create notification
+    if (Notification.permission !== "granted")
+    Notification.requestPermission();
+    else {
+      var notification = new Notification('Notification', {
+        icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+        body: "Hey there! A Reference has been added!",
+      });
+
+      notification.onclick = function () {
+        window.open(url);
+      };
+
+    }
     window.location.href = "main.html";
+
 
   })
   .catch(() => {
@@ -141,3 +157,13 @@ window.onload = function() {
   getURL();
 
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chromium.');
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+  Notification.requestPermission();
+});

@@ -21,10 +21,10 @@
   <hr>
   <label for="inputTopic">Choose a category for your post</label>
   <select id="inputTopic" class="form-control">
-    <option value="web" selected>Web 2.0 technologies</option>
-    <option value="inlearning">Individual learning</option>
-    <option value="reptool">Representational tools</option>
-    <option value="iescript">Internal and external Scripting</option>
+    <option value="web" selected>Web 2.0 Technologies</option>
+    <option value="inlearning">Information Processing</option>
+    <option value="reptool">Representational Tools</option>
+    <option value="iescript">Internal and External Scripting</option>
     <option value="thinkaloud">Think Aloud</option>
     <option value="abtest">A/B Testing</option>
   </select>
@@ -45,14 +45,16 @@
   <br>
 
   <label for="ms">Tags</label>
-  <input id="ms" class="form-control" name="keywords[]" placeholder="Add tags"/><br>
+  <input id="ms" class="form-control" name="keywords[]" placeholder="Add tags"/>
 
-  <label for="notes">Notes</label>
-  <textarea class="form-control" rows="5" id="notes" placeholder="Add notes"></textarea>
-  <small id="prompt_question" hidden><br>Consider framing your question like: 1. What is..? 2. How would you describe? 3. What examples can you find to explain..?<br></small>
+  <small id="prompt_question" hidden><br>Consider framing your question like following: 1. What is ..? 2. How would you describe ..? 3. What examples can you find to explain..?<br></small>
   <small id="prompt_explanation" hidden><br>Consider including the key points, their definitions and some examples.<br></small>
   <small id="prompt_example" hidden><br>Consider including the context for your example<br></small>
   <br>
+
+  <label for="notes">Notes</label>
+  <textarea class="form-control" rows="5" id="notes" placeholder="Add notes"></textarea>
+
 
 
   <label for="addSource-button">Do you want to add a source for your post?</label>
@@ -63,11 +65,7 @@
     <input type="text" class="form-control" id="url">
   </div>
   <br>
-  <!--
-  <label for="ms">Tags</label>
-  <input id="ms" class="form-control" name="keywords[]"/>
-  <br>
--->
+
 <button id="addPost-button" class="btn btn-success btn-block">Add Post</button>
 
 </div>
